@@ -1,0 +1,53 @@
+.box {
+  width: 650px;
+  height: 300px;
+  padding: 50px;
+  background-color: #dddd;
+  position: absolute;
+  top: 30%;
+  left: 42%;
+  margin-left: -160px;
+  margin-top: -70px;
+  box-shadow: 0 30px 30px black;
+}
+.box h1 {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  font-size: 25px;
+  margin-top: -25px;
+}
+
+.button {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+.nameInput {
+  background-color: #d6a528;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.imageInput {
+  background-color: #d6a528;
+  display: block;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.ekleButton {
+  font-size: 1rem;
+  padding: 0.4rem;
+  width: 5rem;
+}
