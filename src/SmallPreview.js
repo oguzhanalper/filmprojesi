@@ -11,7 +11,7 @@ function SmallPreview(props) {
         <div className={body}>
           <h4>{name}</h4>
           <div>
-            {country} & {network}
+            {country} || {network}
           </div>
           <button className={button} onClick={() => props.removeFromList(name)}>
             Çıkar

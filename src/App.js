@@ -5,7 +5,9 @@ import SmallPreview from "./SmallPreview";
 import { Switch, Route, Link } from "react-router-dom";
 import Details from "./Details";
 import AddFilm from "./AddFilm";
-import Arama from "./Arama";
+//TODO import Arama from "./Arama";
+import { toast } from "react-toastify";
+import { Flip, Zoom, Bounce, Slide } from "react-toastify";
 
 function App() {
   const showObj = {
@@ -25,13 +27,13 @@ function App() {
   const [current, setCurrent] = useState(null);
   const [watchList, setWatchList] = useState([]);
   const [page, setPage] = useState(1);
-  const [arama, setArama] = useState([]);
+  //TODO const [arama, setArama] = useState("");
   useEffect(() => {
     axios
       .get("https://www.episodate.com/api/most-popular?page=1")
       .then((response) => {
         setShows(response.data.tv_shows);
-        // setWatchList(response.data.tv_shows.slice(0, 4));
+        //? setWatchList(response.data.tv_shows.slice(0, 4));
       })
       .catch((error) => console.log("hata", error));
   }, []);
@@ -47,7 +49,16 @@ function App() {
 
   function handleAdd(diziObj) {
     if (watchList.find((dizi) => dizi.id === diziObj.id)) {
-      alert("Seçilen Film Listede Var!");
+      toast("Seçilen Dizi Listede Var", {
+        position: "top-right",
+        autoClose: 2500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: "dark",
+        transition: Slide,
+      });
     } else {
       setWatchList([...watchList, diziObj]);
     }
@@ -74,9 +85,8 @@ function App() {
           <div className="show-list">
             <h2>Popüler Diziler</h2>
             <div className="addShowList">
-              <Arama setArama={setArama} arama={arama} />
-
-              <Link className="diziEkle" to="/dizi-ekle" disabled={page > 1}>
+              {/* <Arama setArama={setArama} arama={arama} /> */}//TODO
+              <Link className="diziEkle" to="/dizi-ekle">
                 Dizi Ekle
               </Link>
             </div>

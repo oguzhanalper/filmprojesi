@@ -1,11 +1,11 @@
 .box {
-  width: 650px;
-  height: 300px;
+  width: 850px;
+  height: 350px;
   padding: 50px;
   background-color: #dddd;
   position: absolute;
   top: 30%;
-  left: 42%;
+  left: 30%;
   margin-left: -160px;
   margin-top: -70px;
   box-shadow: 0 30px 30px black;
@@ -18,12 +18,13 @@
   margin-top: -25px;
 }
 
-.button {
+.addButton {
   display: flex;
-  justify-content: space-around;
-  margin-top: 1rem;
-  padding-left: 3rem;
-  padding-right: 3rem;
+  justify-items: center;
+  align-items: center;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  padding: 0.5rem 20px 0.5rem 20px;
 }
 .nameInput {
   background-color: #d6a528;
@@ -46,8 +47,9 @@
   border-radius: 4px;
   box-sizing: border-box;
 }
-.ekleButton {
-  font-size: 1rem;
-  padding: 0.4rem;
-  width: 5rem;
+.button {
+  display: flex;
+  justify-content: center;
+  width: 45vw;
+  align-items: center;
 }

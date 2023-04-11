@@ -2,9 +2,11 @@ import React from "react";
 import getStil from "./AddFilm.module.css";
 import { useHistory } from "react-router-dom";
 import { useState } from "react";
+import { toast } from "react-toastify";
+import { Flip, Zoom, Bounce, Slide } from "react-toastify";
 
 function AddFilm(props) {
-  const { box, button, nameInput, imageInput, ekleButton } = getStil;
+  const { box, button, addButton, nameInput, imageInput, ekleButton } = getStil;
   const [form, setForm] = useState({
     name: "",
     image_thumbnail_path: "",
@@ -25,11 +27,23 @@ function AddFilm(props) {
       ...form,
       id: Date.now(),
     });
+
+    toast("Filminiz başarıyla eklendi", {
+      position: "top-right",
+      autoClose: 2500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      theme: "dark",
+      transition: Slide,
+    });
+    setTimeout(() => history.push("/"), 2000);
   }
-  //TODO goBack ile hata veiyor geri gitmiyor
+
   const history = useHistory();
   function handleClick() {
-    history.push("/");
+    history.goBack();
   }
 
   return (
@@ -38,7 +52,7 @@ function AddFilm(props) {
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="name">
-            Film Adı:
+            Film Adı: Dizi Ekle{" "}
             <input
               className={nameInput}
               id="name"
@@ -48,8 +62,7 @@ function AddFilm(props) {
             ></input>
           </label>
         </div>
-      </form>
-      <form>
+
         <div>
           <label htmlFor="image_thumbnail_path">
             Film Posteri Url :
@@ -63,12 +76,15 @@ function AddFilm(props) {
           </label>
         </div>
         <div className={button}>
-          <button className={ekleButton} type="submit">
+          <button id="add" className={addButton} type="submit">
             Ekle
           </button>
-          <button onClick={handleClick}>Geri Dön</button>
         </div>
       </form>
+
+      <div className={button}>
+        <button onClick={handleClick}>Geri Dön</button>
+      </div>
     </div>
   );
 }
